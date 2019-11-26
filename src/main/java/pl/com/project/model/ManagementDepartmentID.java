@@ -1,4 +1,4 @@
-package pl.com.Project.main;
+package pl.com.project.model;
 
 public class ManagementDepartmentID {
 }

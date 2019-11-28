@@ -3,6 +3,7 @@ package pl.com.project.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity(name = "Employee")
 @Table(name = "employees")
@@ -28,6 +29,9 @@ public class Employee implements Serializable {
 
     @Column(name = "hire_date")
     private Date hireDate;
+
+    @OneToMany(mappedBy = "id.employee", cascade = CascadeType.ALL)
+    private List<Salary> salaries;
 
     public Long getId() {
         return id;
@@ -71,5 +75,18 @@ public class Employee implements Serializable {
 
     public void setHireDate(Date hireDate) {
         this.hireDate = hireDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", birthDate=" + birthDate +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", gender=" + gender +
+                ", hireDate=" + hireDate +
+                ", salaries=" + salaries +
+                '}';
     }
 }
